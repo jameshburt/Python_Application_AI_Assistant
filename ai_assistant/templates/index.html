@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Assistant</title>
+</head>
+<body>
+    <h1>AI Assistant</h1>
+    <button onclick="startListening()">Start Listening</button>
+    <p id="response"></p>
+
+    <script>
+        function startListening() {
+            fetch('/process', {
+                method: 'POST'
+            }).then(response => response.json())
+              .then(data => {
+                  document.getElementById('response').innerText = data.response;
+              });
+        }
+    </script>
+</body>
+</html>
